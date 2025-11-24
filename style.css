@@ -1,0 +1,41 @@
+:root{--accent:#00aaff;--card-bg:rgba(0,0,0,0.7);--muted:rgba(255,255,255,0.75)}
+*{box-sizing:border-box}
+html,body{height:100%}
+body{
+  margin:0; font-family:Inter, system-ui, -apple-system, 'Segoe UI', Roboto, Arial;
+  background: url('assets/night-sky.webp') center/cover fixed no-repeat #07101a;
+  color:#e6f0ff;
+}
+.background-overlay{
+  position:fixed; inset:0; background:rgba(0,0,0,0.55); z-index:0;
+}
+.quiz-container{
+  position:relative; z-index:2; max-width:820px; margin:48px auto; padding:24px; border-radius:14px;
+  background:var(--card-bg); box-shadow:0 10px 40px rgba(2,6,23,0.6); backdrop-filter:blur(6px);
+}
+.quiz-header{display:flex;align-items:center;justify-content:space-between}
+h1{margin:0;font-size:20px}
+.lead{margin:6px 0 0;font-size:13px;opacity:0.9}
+.progress{height:10px;background:rgba(255,255,255,0.06);border-radius:8px;overflow:hidden;margin:18px 0}
+.bar{height:100%;width:0%;background:var(--accent);transition:width .35s}
+.pages{min-height:320px}
+.page{display:none;animation:fade .35s both}
+.page.active{display:block}
+@keyframes fade{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:none}}
+label{font-weight:600;display:block;margin-bottom:8px}
+.options{margin-bottom:18px}
+.options input{margin-right:8px}
+.row{display:flex;gap:12px;margin-top:8px}
+.btn{display:inline-block;padding:10px 14px;border-radius:10px;background:var(--accent);color:#042033;border:none;cursor:pointer}
+.btn.ghost{background:transparent;border:1px solid rgba(255,255,255,0.08);color:inherit}
+.result-block{background:rgba(255,255,255,0.04);padding:14px;border-radius:10px;margin-top:12px}
+.tips{margin-top:12px;padding:12px;border-radius:8px;background:rgba(255,255,255,0.02)}
+.share-row{display:flex;gap:10px;margin-top:12px}
+.small{font-size:13px;opacity:.9}
+footer{margin-top:12px;text-align:center;font-size:13px}
+.ghost{background:transparent}
+@media (max-width:640px){.row{flex-direction:column}}
+/* Light mode */
+body.light{color:#081124;background:linear-gradient(180deg,#eef2f3 0%,#f7fbff 100%)}
+body.light .quiz-container{background:white;color:#081124}
+body.light .result-block{background:#f5f9ff}

@@ -1,0 +1,175 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Sleep Chronotype Quiz</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="background-overlay"></div>
+  <div class="quiz-container">
+    <header class="quiz-header">
+      <div>
+        <h1>Sleep Chronotype Quiz</h1>
+        <p class="lead">Personalized sleep score, circadian type, and sleep persona.</p>
+      </div>
+      <div class="controls">
+        <button id="themeToggle" class="ghost">Toggle Theme</button>
+      </div>
+    </header>
+
+    <div class="progress"><div id="progressBar" class="bar"></div></div>
+
+    <main id="pages" class="pages">
+      <!-- Step 1 -->
+      <section class="page active" data-step="1">
+        <label>How do you usually feel in the morning?</label>
+        <div class="options">
+          <label><input type="radio" name="mornFeel" value="energized" required> Energized</label>
+          <label><input type="radio" name="mornFeel" value="okay"> Okay</label>
+          <label><input type="radio" name="mornFeel" value="groggy"> Groggy</label>
+          <label><input type="radio" name="mornFeel" value="exhausted"> Exhausted</label>
+        </div>
+
+        <label>How often do you feel sleepy during the day?</label>
+        <div class="options">
+          <label><input type="radio" name="daySleepy" value="never" required> Never</label>
+          <label><input type="radio" name="daySleepy" value="occasionally"> Occasionally</label>
+          <label><input type="radio" name="daySleepy" value="frequently"> Frequently</label>
+          <label><input type="radio" name="daySleepy" value="always"> Almost always</label>
+        </div>
+
+        <div class="row">
+          <button class="btn" data-next>Next</button>
+          <button class="btn ghost" id="saveLocal1">Save progress</button>
+        </div>
+      </section>
+
+      <!-- Step 2 -->
+      <section class="page" data-step="2">
+        <label>Do you use screens (phone/computer) within 60 minutes before bed?</label>
+        <div class="options">
+          <label><input type="radio" name="screens" value="no" required> No</label>
+          <label><input type="radio" name="screens" value="sometimes"> Sometimes</label>
+          <label><input type="radio" name="screens" value="often"> Often</label>
+          <label><input type="radio" name="screens" value="always"> Always</label>
+        </div>
+
+        <label>How often do you exercise per week (any intensity)?</label>
+        <div class="options">
+          <label><input type="radio" name="exercise" value="0" required> 0</label>
+          <label><input type="radio" name="exercise" value="1-2"> 1–2 times</label>
+          <label><input type="radio" name="exercise" value="3-4"> 3–4 times</label>
+          <label><input type="radio" name="exercise" value="5+"> 5 or more</label>
+        </div>
+
+        <label>Do you rely on caffeine or naps to get through the day?</label>
+        <div class="options">
+          <label><input type="radio" name="rely" value="never" required> Never</label>
+          <label><input type="radio" name="rely" value="sometimes"> Sometimes</label>
+          <label><input type="radio" name="rely" value="daily"> Daily</label>
+          <label><input type="radio" name="rely" value="multiple"> Multiple times/day</label>
+        </div>
+
+        <div class="row">
+          <button class="btn" data-prev>Back</button>
+          <button class="btn" data-next>Next</button>
+        </div>
+      </section>
+
+      <!-- Step 3 -->
+      <section class="page" data-step="3">
+        <label>How stressed do you feel in the evening before bed?</label>
+        <div class="options">
+          <label><input type="radio" name="stress" value="low" required> Low</label>
+          <label><input type="radio" name="stress" value="medium"> Medium</label>
+          <label><input type="radio" name="stress" value="high"> High</label>
+          <label><input type="radio" name="stress" value="veryHigh"> Very high</label>
+        </div>
+
+        <label>Do you experience racing thoughts or worry that prevents sleep?</label>
+        <div class="options">
+          <label><input type="radio" name="worry" value="never" required> Never</label>
+          <label><input type="radio" name="worry" value="sometimes"> Sometimes</label>
+          <label><input type="radio" name="worry" value="often"> Often</label>
+          <label><input type="radio" name="worry" value="always"> Always</label>
+        </div>
+
+        <div class="row">
+          <button class="btn" data-prev>Back</button>
+          <button class="btn" data-next>Next</button>
+        </div>
+      </section>
+
+      <!-- Step 4 -->
+      <section class="page" data-step="4">
+        <label>What is your #1 sleep goal?</label>
+        <div class="options">
+          <label><input type="radio" name="goal" value="fall" required> Fall asleep faster</label>
+          <label><input type="radio" name="goal" value="wake"> Wake up refreshed</label>
+          <label><input type="radio" name="goal" value="stay"> Reduce interruptions at night</label>
+          <label><input type="radio" name="goal" value="align"> Fix my schedule/shift chronotype</label>
+        </div>
+
+        <label>What time do you naturally wake up on days without obligations?</label>
+        <div class="options small">
+          <label><input type="radio" name="freeWake" value="5-7" required> 5–7 AM</label>
+          <label><input type="radio" name="freeWake" value="7-9"> 7–9 AM</label>
+          <label><input type="radio" name="freeWake" value="9-12"> 9–12 PM (late)</label>
+          <label><input type="radio" name="freeWake" value="inconsistent"> Very inconsistent</label>
+        </div>
+
+        <div class="row">
+          <button class="btn" data-prev>Back</button>
+          <button class="btn" data-next>Next</button>
+        </div>
+      </section>
+
+      <!-- Step 5 -->
+      <section class="page" data-step="5">
+        <label>Do you wake during the night (how often)?</label>
+        <div class="options">
+          <label><input type="radio" name="wakeNight" value="never" required> Almost never</label>
+          <label><input type="radio" name="wakeNight" value="1-2"> 1–2 times</label>
+          <label><input type="radio" name="wakeNight" value="several"> Several times</label>
+          <label><input type="radio" name="wakeNight" value="constant"> Constantly/light sleeper</label>
+        </div>
+
+        <label>When do you feel most alert during a free day?</label>
+        <div class="options">
+          <label><input type="radio" name="alertness" value="morning" required> Morning</label>
+          <label><input type="radio" name="alertness" value="midday"> Midday</label>
+          <label><input type="radio" name="alertness" value="evening"> Evening</label>
+          <label><input type="radio" name="alertness" value="random"> Random times</label>
+        </div>
+
+        <div class="row">
+          <button class="btn" data-prev>Back</button>
+          <button class="btn" id="calculateBtn">See Results</button>
+        </div>
+      </section>
+
+      <!-- Results -->
+      <section class="page" id="results" data-step="6">
+        <h2>Your Sleep Assessment</h2>
+        <div id="summary" class="result-block"></div>
+
+        <div class="share-row">
+          <button class="btn" id="copyBtn">Copy Summary</button>
+          <button class="btn ghost" id="tweetBtn">Share on Twitter</button>
+          <button class="btn ghost" id="restartBtn">Retake Quiz</button>
+        </div>
+
+        <div class="tips small" id="resources">
+          Resources: <a href="https://www.sleepfoundation.org/sleep-topics/chronotypes" target="_blank" rel="noopener">Sleep Foundation</a> • <a href="https://aasm.org/" target="_blank" rel="noopener">AASM</a>
+        </div>
+      </section>
+    </main>
+
+    <footer class="small">Built for self-engineering. Results saved locally only.</footer>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
