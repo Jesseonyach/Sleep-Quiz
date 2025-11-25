@@ -7,3 +7,5 @@ This is a static website that runs entirely in the browser. It includes:
 - Dark/light theme toggle
 - Local saving of progress and last result
 - Share/copy result
+
+- Link to website: https://jesseonyach.github.io/Sleep-Quiz/
